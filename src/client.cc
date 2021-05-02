@@ -163,11 +163,6 @@ bool Client::Implementation::performRequestOnCurrentHost(Client::HTTPMethod meth
     if (!body.empty()) {
         header["Content-Type"] = "application/json; charset=utf-8";
     }
-    switch (method) {
-        case Client::HTTPMethod::POST:
-        case Client::HTTPMethod::PUT:
-             header["Expect"] = "";
-    }
     session.SetHeader(header);
     session.SetBody(cpr::Body(body));
 
